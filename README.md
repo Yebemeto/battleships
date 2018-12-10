@@ -24,9 +24,13 @@ Four Decker A1,B1,C1,D1
 
 Standard game scenario is as follows:
 1.Player one makes a POST request to /game url. Application generates id for the game. It replies with Set-Auth-Token header containing the token this users has to use in consequent request. The body of the response contains an invitation url: /game/{id}/join to send to another player
+
 2.Player two joins the game by sending POST request to the invitation url recived from player one. He recives current game state in response body and his token in Set-Auth-Token header.
+
 3.After joining the game, player two takes the first turn and starts shooting.
+
 4.Players shoot on their respective turns by invoking PUT /game/{id} with their Auth-Token in a header and { “position”: “A5” } body. Response is a JSON with info if any ship was hit and if it was sunken. In case of a hit the shooting player takes another turn.
+
 5.Players can check current game state by invoking GET /game/{id} with their Auth-Token in a header.
 
 API details:
