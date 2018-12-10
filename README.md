@@ -31,14 +31,25 @@ Standard game scenario is as follows:
 
 API details:
 -Creating game
+
 ○ Request: POST /game 
+
 ○ Response: { “invitationUrl”: “/game/{id}/join”} and Set-Auth-Token header with token.
+
 -Joining game
+
 ○ Request: POST /game/{id|/join 
+
 ○ Response: starting game state, as in  GET /game/{id}, so { “gameStatus:” “YOUR_TURN”, “yourScore”: 0, “opponentScore: 0 } alongside Set-Auth-Token header with token.
+
 -Shooting
+
 ○ Request: PUT /game/{id} with Auth-Token header, body: { “position”: “A5” } 
+
 ○ Response :  { “result”: “MISS” }, player has to remember where he has shot before. Another shot in the same position results in a loss of a turn. { “result”: “HIT”, “shipType”: “FOUR_DECKER”, “sunken”: false }, ship types: FOUR_DECKER, THREE_DECKER, TWO_DECKER, ONE_DECKER 
+
 -Game state
+
 ○ Request: GET /game/{id} with Auth-Token header
+
 ○ Response: { “gameStatus:” “AWAITING_PLAYERS”, “yourScore”: 4, “opponentScore: 12 }, score is a number of hits. Available game states: AWAITING_PLAYERS, YOUR_TURN, WAITING_FOR_OPPONENT_MOVE, YOU_WON, YOU_LOST. 
