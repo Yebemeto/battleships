@@ -1,7 +1,7 @@
 To build the app please execute "mvn package" inside battleships project folder.
 Then inside "target" folder the .war file will appear.
 Deploy the .war file in a container of your choice. I have tested it on Wildfly.
-The application REST interface is available on path : server_path:server_port/battleships-1/game
+The application REST interface is available on path : server_ip:server_port/battleships-1/game
 The details of application and its interface:
 
 ﻿This is a simple REST application. It allows players play simplified version of "Battleships" game:
