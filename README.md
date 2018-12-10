@@ -10,11 +10,17 @@ The details of application and its interface:
 -Every player has four ships, one of each kind: one decker, two decker, three decker, four decker
 -Players do not place their ships manually, the placement is predefined as follows:
 
-		Player one			Player two
-One Decker	|	A1			|	J10
-Two Decker	|	D1,D2			|	G9,G10
-Three Decker	|	G1,G2,G3		|	D8,D9,D10
-Four Decker	|	J1,J2,J3,J4		|	A1,B1,C1,D1
+Player one					
+One Decker A1
+Two Decker D1,D2
+Three Decker G1,G2,G3
+Four Decker J1,J2,J3,J4
+
+Player two
+One Decker J10
+Two Decker G9,G10
+Three Decker D8,D9,D10
+Four Decker A1,B1,C1,D1
 
 Standard game scenario is as follows:
 1.Player one makes a POST request to /game url. Application generates id for the game. It replies with Set-Auth-Token header containing the token this users has to use in consequent request. The body of the response contains an invitation url: /game/{id}/join to send to another player
